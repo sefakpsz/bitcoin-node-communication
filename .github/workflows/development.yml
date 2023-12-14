@@ -1,0 +1,44 @@
+name: Development
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check whether is existing container then run or re-build container
+        run: |
+          if [ -n "$(docker ps -aq)" ]; then
+            docker-compose up -d --build
+          else
+            docker-compose up -d
+          fi
+
+      - name: Check and remove images which unused
+        run: |
+          if [ -n "$(docker images -f "dangling=true" -q)" ]; then
+            docker rmi $(docker images -f "dangling=true" -q)
+          else
+            echo "No image to remove."
+          fi
+
+      - name: Check the storage of machine and do cleaning if it is needed
+        run: |
+          # "df -h --output=avail" command for getting avaliable storages of specific paths i.e root folder
+          # "|" to taking the output from the previous command ('df') and passes it as input to the next command ('tail')
+          # "tail -n 1" outputs only the last line of the input, which contains the information for the root file system.
+          # "awk" is kind of enabling regex usage
+          # "'{gsub(/[^0-9.]/,"",$1); print $1}'" and it remove the 'G' from output of "10G" and output "10"
+          # "bc -l" it loads the math lib with '-l' and according the comparison it results 1(true) or 0(false)
+          free_space=$(df -h --output=avail / | tail -n 1 | awk '{gsub(/[^0-9.]/,"",$1); print $1}')
+          threshold=5
+          if (( $(echo "$free_space < $threshold" | bc -l) )); then
+            echo "Free space is below ${threshold}GB. Running docker system prune..."
+            docker system prune --all --force
+          else
+            echo "Free space is above ${threshold}GB. No need to cleaning."
+          fi
