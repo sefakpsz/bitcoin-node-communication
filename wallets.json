@@ -1,0 +1,10 @@
+{
+    "testWallets": [
+        "tb1qmv394rva8gsnx0flxpzgw4jn9vr25jkwrlspfc",
+        "tb1qjfgdvt3lwx3ul8lgmh3pt3y5xkhn3ujrvq3e4w",
+        "tb1q3l0gykm5vck5mg43ekvtwjzqveuj8scmvq0hgh"
+    ],
+    "mainWallets": [
+        "bc1q888t7h7899g477ct8gdx299ytkmdgqz2kwvhmh"
+    ]
+}
