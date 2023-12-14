@@ -1,0 +1,34 @@
+{
+    "ts-node": {
+        "files": true
+    },
+    "include": [
+        "/src/**/*.ts",
+    ],
+    "files": [
+        "src/app.ts",
+    ],
+    "compilerOptions": {
+        "target": "es2016",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "typeRoots": [
+            "./node_modules/@types",
+        ],
+        "types": [
+            "node",
+            "express",
+        ],
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "baseUrl": "./",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        }
+    }
+}
