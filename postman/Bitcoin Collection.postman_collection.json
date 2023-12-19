@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "3a478e01-e8ee-4d1d-8079-c810656f66ef",
+		"name": "Bitcoin Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22708443",
+		"_collection_link": "https://speeding-rocket-313643.postman.co/workspace/Coino-Infrastructures-Of-Coins~d470f5dc-f328-4773-8fed-403e45c6fe86/collection/22708443-3a478e01-e8ee-4d1d-8079-c810656f66ef?action=share&source=collection_link&creator=22708443"
+	},
+	"item": [
+		{
+			"name": "Create Wallet",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/createWallet?network=test",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"createWallet"
+					],
+					"query": [
+						{
+							"key": "network",
+							"value": "test",
+							"description": "validNetworkTypes: \"main\", \"test\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/getAllTransactions?count=1000&skip=0&network=main",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"getAllTransactions"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "coino",
+							"description": "This field may be not used, if not use you see main wallet's results ",
+							"disabled": true
+						},
+						{
+							"key": "count",
+							"value": "1000"
+						},
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "network",
+							"value": "main",
+							"description": "validNetworkTypes: \"main\", \"test\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Bitcoin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/sendBitcoin?to=1EQzfVWQ97J5WyLqSmugPKZdzqbbuXXMpA&amount=0.00001&minConfirmation=6&network=main",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"sendBitcoin"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "1EQzfVWQ97J5WyLqSmugPKZdzqbbuXXMpA"
+						},
+						{
+							"key": "amount",
+							"value": "0.00001"
+						},
+						{
+							"key": "minConfirmation",
+							"value": "6"
+						},
+						{
+							"key": "network",
+							"value": "main",
+							"description": "validNetworkTypes: \"main\", \"test\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Wallet Balance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/getWalletBalance?network=main&walletId=coino",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"getWalletBalance"
+					],
+					"query": [
+						{
+							"key": "network",
+							"value": "main",
+							"description": "validNetworkTypes: \"main\", \"test\""
+						},
+						{
+							"key": "walletId",
+							"value": "coino"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Base Wallet Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/getWalletInfo?network=test",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"getWalletInfo"
+					],
+					"query": [
+						{
+							"key": "network",
+							"value": "test",
+							"description": "validNetworkTypes: \"main\", \"test\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Transaction Fee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/setTransactionFee?txFee=0&main=test",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"setTransactionFee"
+					],
+					"query": [
+						{
+							"key": "txFee",
+							"value": "0"
+						},
+						{
+							"key": "main",
+							"value": "test",
+							"description": "validNetworkTypes: \"main\", \"test\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/getTransaction?txHash=c18ddb09fe9c264d66fb715a7f7f39c0f665c8a5219fb31058d6d084777fbf60&network=test",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"getTransaction"
+					],
+					"query": [
+						{
+							"key": "txHash",
+							"value": "c18ddb09fe9c264d66fb715a7f7f39c0f665c8a5219fb31058d6d084777fbf60"
+						},
+						{
+							"key": "network",
+							"value": "test",
+							"description": "validNetworkTypes: \"main\", \"test\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Label To Address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/setLabel?address=bc1qrfkqzvyx09q3axmdnrk38q39h2p3e7n48q2nh0&label=coino&network=test",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"setLabel"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "bc1qrfkqzvyx09q3axmdnrk38q39h2p3e7n48q2nh0"
+						},
+						{
+							"key": "label",
+							"value": "coino"
+						},
+						{
+							"key": "network",
+							"value": "test",
+							"description": "validNetworkTypes: \"main\", \"test\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Estimate Smart Fee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/estimateSmartFee?network=main",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"estimateSmartFee"
+					],
+					"query": [
+						{
+							"key": "network",
+							"value": "main",
+							"description": "validNetworkTypes: \"main\", \"test\""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:3000/bitcoin",
+			"type": "string"
+		}
+	]
+}
