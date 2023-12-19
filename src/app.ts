@@ -7,6 +7,7 @@ import bitcoinRoute from "./routes/bitcoin.routes"
 import {
   validationError,
   notFoundError,
+  exceptionHandler,
 } from "./middlewares/error.middleware"
 
 import { config } from "dotenv"
@@ -24,6 +25,7 @@ app.use("/bitcoin", bitcoinRoute)
 
 app.use(validationError)
 app.use(notFoundError)
+app.use(exceptionHandler)
 
 const port = process.env.port ?? 3000
 
