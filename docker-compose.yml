@@ -5,12 +5,12 @@ services:
       context: ./
       dockerfile: Dockerfile
     environment:
-      - testdomain = "18.168.124.212"
-      - testport = "18332"
-      - testusername = "bitcoin"
-      - testpassword = "QUvof0oSTLfavOFrlphoyIyeBu6ROKatretr"
-      - testpassphrase = "herb-lovely-lower-nice-rope-title-artist-cheese-smoke-cookie"
-      - testurl = "http://bitcoin:QUvof0oSTLfavOFrlphoyIyeBu6ROKatretr@18.168.124.212:18332"
+      - testdomain="18.168.124.212"
+      - testport="18332"
+      - testusername="bitcoin"
+      - testpassword="QUvof0oSTLfavOFrlphoyIyeBu6ROKatretr"
+      - testpassphrase="herb-lovely-lower-nice-rope-title-artist-cheese-smoke-cookie"
+      - testurl="http://bitcoin:QUvof0oSTLfavOFrlphoyIyeBu6ROKatretr@18.168.124.212:18332"
     ports:
       - "3000:3000"
     restart: "always"
